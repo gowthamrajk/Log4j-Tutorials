@@ -1,0 +1,35 @@
+2021-12-21-main--INFO -com.gowthamrajk.log4jpractice.LoggerDemo:infomation messages are logged here !!!
+2021-12-21-main--INFO -com.gowthamrajk.log4jpractice.LoggerDemo:infomation messages are logged here !!!
+2021-12-21-main--INFO -com.gowthamrajk.log4jpractice.LoggerDemo:infomation messages are logged here !!!
+2021-12-21 11:36:12-main--INFO -com.gowthamrajk.log4jpractice.LoggerDemo:infomation messages are logged here !!!
+2021-12-21 11:40:52-main--INFO -com.gowthamrajk.log4jpractice.LoggerDemo:infomation messages are logged here !!!
+2021-12-21 11:41:37-main--INFO -com.gowthamrajk.log4jpractice.LoggerDemo:infomation messages are logged here !!!
+2021-12-21 11:47:05-main--INFO -com.gowthamrajk.log4jpractice.LoggerDemo:infomation messages are logged here !!!
+2021-12-21 11:48:56,629-main--INFO -com.gowthamrajk.log4jpractice.LoggerDemo:infomation messages are logged here !!!
+21 Dec 2021 11:50:03,909-main--INFO -com.gowthamrajk.log4jpractice.LoggerDemo:infomation messages are logged here !!!
+21 Dec 2021 12:19:02,285-main--INFO -com.gowthamrajk.log4jpractice.LoggerDemo:even numbers are logged here !!!
+21 Dec 2021 12:19:02,368-main--TRACE-com.gowthamrajk.log4jpractice.LoggerDemo:2 
+21 Dec 2021 12:19:02,369-main--TRACE-com.gowthamrajk.log4jpractice.LoggerDemo:4 
+21 Dec 2021 12:19:02,378-main--TRACE-com.gowthamrajk.log4jpractice.LoggerDemo:6 
+21 Dec 2021 12:19:02,380-main--TRACE-com.gowthamrajk.log4jpractice.LoggerDemo:8 
+21 Dec 2021 12:19:02,382-main--TRACE-com.gowthamrajk.log4jpractice.LoggerDemo:10 
+21 Dec 2021 12:20:04,457-main--INFO -com.gowthamrajk.log4jpractice.LoggerDemo:even numbers are logged here !!!
+21 Dec 2021 12:20:07,154-main--TRACE-com.gowthamrajk.log4jpractice.LoggerDemo:2 
+21 Dec 2021 12:20:07,159-main--TRACE-com.gowthamrajk.log4jpractice.LoggerDemo:4 
+21 Dec 2021 12:20:07,165-main--TRACE-com.gowthamrajk.log4jpractice.LoggerDemo:6 
+21 Dec 2021 12:20:07,170-main--TRACE-com.gowthamrajk.log4jpractice.LoggerDemo:8 
+21 Dec 2021 12:20:07,174-main--TRACE-com.gowthamrajk.log4jpractice.LoggerDemo:10 
+21 Dec 2021 12:24:14,234-main--INFO -com.gowthamrajk.log4jpractice.LoggerDemo:even numbers are logged here !!!
+21 Dec 2021 12:24:16,168-main--TRACE-com.gowthamrajk.log4jpractice.LoggerDemo:2 
+21 Dec 2021 12:24:16,255-main--TRACE-com.gowthamrajk.log4jpractice.LoggerDemo:4 
+21 Dec 2021 12:24:16,355-main--TRACE-com.gowthamrajk.log4jpractice.LoggerDemo:6 
+21 Dec 2021 12:24:16,581-main--TRACE-com.gowthamrajk.log4jpractice.LoggerDemo:8 
+21 Dec 2021 12:24:16,779-main--TRACE-com.gowthamrajk.log4jpractice.LoggerDemo:10 
+21 Dec 2021 12:27:03,617-main--INFO -com.gowthamrajk.log4jpractice.LoggerDemo:Vote Eligiblity Calculator : 
+21 Dec 2021 12:27:13,209-main--WARN -com.gowthamrajk.log4jpractice.LoggerDemo:Not Eligible to vote !!!
+21 Dec 2021 12:27:59,008-main--INFO -com.gowthamrajk.log4jpractice.LoggerDemo:Vote Eligiblity Calculator : 
+21 Dec 2021 12:28:00,980-main--TRACE-com.gowthamrajk.log4jpractice.LoggerDemo:Age : 45Eligible to Vote !!!
+21 Dec 2021 12:28:23,397-main--INFO -com.gowthamrajk.log4jpractice.LoggerDemo:Vote Eligiblity Calculator : 
+21 Dec 2021 12:28:27,748-main--TRACE-com.gowthamrajk.log4jpractice.LoggerDemo:Age : 60 => Eligible to Vote !!!
+21 Dec 2021 12:29:56,792-main--INFO -com.gowthamrajk.log4jpractice.LoggerDemo:Vote Eligiblity Calculator : 
+21 Dec 2021 12:30:01,346-main--WARN -com.gowthamrajk.log4jpractice.LoggerDemo:Age : 12 => Not Eligible to vote !!!

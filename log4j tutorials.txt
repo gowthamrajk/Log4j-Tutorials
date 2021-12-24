@@ -1,0 +1,255 @@
+LOG4J
+
+
+About log4j : 
+
+- log4j is a reliable, fast and flexible logging framework (APIs) written in Java, which is distributed under the Apache Software License. 
+- log4j is a popular logging package written in Java.
+- log4j is highly configurable through external configuration files at runtime. 
+- It views the logging process in terms of levels of priorities and offers mechanisms to direct logging information to a great variety of destinations, 
+  such as a database, file, console, UNIX Syslog, etc.
+
+
+Drawbacks in System.out.println() : 
+
+- removing/commenting statement after once it is debugged
+- it can write/log the printing messages to only one destination at a time.
+- cannot categorize the messages
+- cannot format the messages
+- in multi-threading applications, the performance will be slower.
+
+
+Advantages of using Log4j : 
+
+- new messages are appended to previous message.
+- messages will be getting appended, not overriden.
+- no need to comment/erase printing statements.
+- we can set the messages to log based on levels.
+- we can also OFF the logging status by using Level.OFF
+- we can categorize the messages, format them, and append whenever needed.
+
+
+Class Level Configuration : 
+
+Layout layoutObj = new SimpleLayout();
+Appender appenderObj = new ConsoleAppender(layoutObj);
+logger.info("info message");
+logger.addAppender(appenderObj);
+
+
+-> instead of giving this class level configuration in all classes, we can use "log4j.properties"file to declare the configurations.
+
+
+
+Components in Log4j : 
+
+1) loggers => Responsible for capturing logging information.
+
+2) appenders => Responsible for publishing logging information to various preferred destinations.
+
+3) layouts => Responsible for formatting logging information in different styles.
+
+
+Logging Levels : 
+
+- TRACE, DEBUG, INFO, WARN, ERROR, FATAL, ALL
+- Default logging level => INFO
+
+(ALL < DEBUG < INFO < WARN < ERROR < FATAL < OFF)
+
+ALL => All levels including custom levels.
+DEBUG => Designates fine-grained informational events that are most useful to debug an application.
+INFO => Designates informational messages that highlight the progress of the application at coarse-grained level.
+WARN => Designates potentially harmful situations.
+ERROR => Designates error events that might still allow the application to continue running.
+FATAL => Designates very severe error events that will presumably lead the application to abort.
+OFF => The highest possible rank and is intended to turn off logging.
+TRACE => Designates finer-grained informational events than the DEBUG.
+
+
+Available Appenders => AppenderSkeleton, AsyncAppender, ConsoleAppender, DailyRollingFileAppender, ExternallyRolledFileAppender, FileAppender, JDBCAppender, 
+                       JMSAppender, LF5Appender, NTEventLogAppender, NullAppender, RollingFileAppender, SMTPAppender, SocketAppender, SocketHubAppender,
+                       SyslogAppender, TelnetAppender, WriterAppender.
+
+
+Available Layouts => DateLayout, HTMLLayout, PatternLayout, SimpleLayout, XMLLayout
+
+
+
+Features of Log4j : 
+
+- Thread-safe, optimized for speed, based on a named logger hierarchy, supports multiple output appenders per logger, supports internationalization,
+   not restricted to a predefined set of facilities, Behavior can be set at runtime using a configuration file, handle Java Exceptions,
+   multiple levels like ALL, TRACE, DEBUG, INFO, WARN, ERROR and FATAL, format can be easily changed by extending the Layout class, 
+   Target can be altered by implementations of the Appender interface, fail-stop => log4j does not guarantee that each log statement will be delivered 
+   to its destination.
+
+
+Advantages of Logging:
+
+- Logging is an important component of the software development. 
+- A well-written logging code offers quick debugging, easy maintenance, and structured storage of an application's runtime information.
+
+Disadvantages of Logging : 
+
+- It can slow down an application. 
+- If too verbose, it can cause scrolling blindness. 
+- To alleviate these concerns, log4j is designed to be reliable, fast and extensible.
+- Since logging is rarely the main focus of an application, the log4j API strives to be simple to understand and to use.
+
+
+
+Core Objects of Logger : 
+
+1) Logger Object 
+- Top-level layer is the Logger which provides the Logger object. 
+- The Logger object is responsible for capturing logging information and they are stored in a namespace hierarchy.
+
+2) Layout Object
+- The layout layer provides objects which are used to format logging information in different styles. 
+- It provides support to appender objects before publishing logging information.
+- It plays an important role in publishing logging information in a way that is human-readable and reusable.
+
+3) Appender Object
+- Lower-level layer which provides Appender objects. 
+- The Appender object is responsible for publishing logging information to various preferred destinations such as a database, file, console, UNIX Syslog, etc.
+
+
+Support Objects :
+
+1) Level Object
+- The Level object defines the granularity and priority of any logging information. 
+- Levels : OFF, DEBUG, INFO, ERROR, WARN, FATAL, ALL
+
+2) Filter Object
+- It is used to analyze logging information and make further decisions on whether that information should be logged or not.
+- An Appender objects can have several Filter objects associated with them. 
+- If logging information is passed to a particular Appender object, all the Filter objects associated with that Appender need to approve the logging 
+  information before it can be published to the attached destination.
+
+3) ObjectRenderer
+- It is specialized in providing a String representation of different objects passed to the logging framework. 
+- This object is used by Layout objects to prepare the final logging information.
+
+4) LogManager
+- It manages the logging framework. 
+- It is responsible for reading the initial configuration parameters from a system-wide configuration file or a configuration class.
+
+
+Appenders : 
+
+- Apache log4j provides Appender objects which are primarily responsible for printing logging messages to different destinations such as 
+  consoles, files, sockets, NT event logs, etc.
+
+layout => Appender uses the Layout objects and the conversion pattern associated with them to format the logging information.
+target => The target may be a console, a file, or another item depending on the appender.
+level => The level is required to control the filtration of the log messages.
+threshold => Appender can have a threshold level associated with it independent of the logger level.
+             The Appender ignores any logging messages that have a level lower than the threshold level.
+filter => The Filter objects can analyze logging information beyond level matching and decide whether logging requests should be handled by a particular 
+          Appender or ignored.
+
+
+
+Logging Methods : 
+
+
+public static Logger getRootLogger();
+public static Logger getLogger(String name);
+
+
+1) public void debug(Object message) => prints messages with the level Level.DEBUG.
+
+2) public void error(Object message) => prints messages with the level Level.ERROR.
+
+3) public void fatal(Object message) => prints messages with the level Level.FATAL.
+
+4) public void info(Object message) => prints messages with the level Level.INFO.
+
+5) public void warn(Object message) => prints messages with the level Level.WARN.
+
+6) public void trace(Object message) => prints messages with the level Level.TRACE.
+
+
+
+Layout Methods : 
+
+1) public abstract boolean ignoresThrowable() => indicates whether the logging information handles any java.lang.Throwable object passed to it as a 
+                                                 part of the logging event. If the Layout object handles the Throwable object, then the Layout object 
+                                                 does not ignore it, and returns false.
+
+2) public abstract String format(LoggingEvent event) => Individual layout subclasses implement this method for layout specific formatting.
+
+
+3) public String getContentType() => returns the content type used by the Layout objects. The base class returns text/plain as the default content type.
+
+4) public String getFooter() => specifies the footer information of the logging message.
+
+5) public String getHeader() => specifies the header information of the logging message.
+
+
+
+File Appender Configurations
+
+immediateFlush => This flag is by default set to true, which means the output stream to the file being flushed with each append operation.
+encoding => It is possible to use any character-encoding. By default, it is the platform-specific encoding scheme.
+threshold => The threshold level for this appender.
+Filename => The name of the log file.
+fileAppend => This is by default set to true, which means the logging information being appended to the end of the same file.
+bufferedIO => This flag indicates whether we need buffered writing enabled. By default, it is set to false.
+bufferSize => If buffered I/O is enabled, it indicates the buffer size. By default, it is set to 8kb.
+maxFileSize => This is the critical size of the file above which the file will be rolled. Default value is 10 MB.
+maxBackupIndex => This property denotes the number of backup files to be created. Default value is 1.
+
+DatePattern => This indicates when to roll over the file and the naming convention to be followed. By default, roll over is performed at midnight each day.
+
+'.' yyyy-MM  ==>  Roll over at the end of each month and at the beginning of the next month.
+'.' yyyy-MM-dd  ==>  Roll over at midnight each day. This is the default value.
+'.' yyyy-MM-dd-a  ==>  Roll over at midday and midnight of each day.
+'.' yyyy-MM-dd-HH  ==>  Roll over at the top of every hour.
+'.' yyyy-MM-dd-HH-mm  ==>  Roll over every minute.
+'.' yyyy-ww  ==>  Roll over on the first day of each week depending upon the locale.
+
+
+
+Pattern Conversion Characters : 
+
+c  ==>  Used to output the category of the logging event. For example, for the category name "a.b.c" the pattern %c{2} will output "b.c".
+C  ==>  Used to output the fully qualified class name of the caller issuing the logging request. For example, for the class name "org.apache.xyz.SomeClass", the pattern %C{1} will output "SomeClass".
+d  ==>  Used to output the date of the logging event. For example, %d{HH:mm:ss,SSS} or %d{dd MMM yyyy HH:mm:ss,SSS}.
+F  ==>  Used to output the file name where the logging request was issued.
+l  ==>  Used to output location information of the caller which generated the logging event.
+L  ==>  Used to output the line number from where the logging request was issued.
+m  ==>  Used to output the application supplied message associated with the logging event.
+M  ==>  Used to output the method name where the logging request was issued.
+n  ==>  Outputs the platform dependent line separator character or characters.
+p  ==>  Used to output the priority of the logging event.
+r  ==>  Used to output the number of milliseconds elapsed from the construction of the layout until the creation of the logging event.
+t  ==>  Used to output the name of the thread that generated the logging event.
+x  ==>  Used to output the NDC (nested diagnostic context) associated with the thread that generated the logging event.
+X  ==>  The X conversion character is followed by the key for the MDC. For example, X{clientIP} will print the information stored in the MDC against the key clientIP.
+%  ==>  The literal percent sign. %% will print a % sign.
+
+
+Format Modifiers : 
+
+%20c  ==>  Left pad with spaces if the category name is less than 20 characters long.
+%-20c  ==>  Right pad with spaces if the category name is less than 20 characters long.
+%.30c  ==>  Truncate from the beginning if the category name is longer than 30 characters.
+%20.30c  ==>  Left pad with spaces if the category name is shorter than 20 characters. However, if the category name is longer than 30 characters, then truncate from the beginning.
+%-20.30c  ==>  Right pad with spaces if the category name is shorter than 20 characters. However, if category name is longer than 30 characters, then truncate from the beginning.
+
+
+
+Logging into Database  : 
+
+- The log4j API provides the org.apache.log4j.jdbc.JDBCAppender object, which can put logging information in a specified database.
+
+bufferSize  =>  Sets the buffer size. Default size is 1.
+driver  =>  Sets the driver class to the specified string. If no driver class is specified, it defaults to sun.jdbc.odbc.JdbcOdbcDriver.
+layout  =>  Sets the layout to be used. Default layout is org.apache.log4j.PatternLayout.
+password  =>  Sets the database password.
+sql  =>  Specifies the SQL statement to be executed every time a logging event occurs. This could be INSERT, UPDATE, or DELETE.
+URL  =>  Sets the JDBC URL.
+user  =>  Sets the database user name.
+
