@@ -6,6 +6,12 @@
 
 ### For more such developments, visit my [Portfolio](https://gowthamrajk.github.io)
 
+## Learning Resources 📺
+
+- [Complete Introduction to Log4j](https://www.youtube.com/playlist?list=PLb0pWz-jnz99Sp6iQxjW-FpmFZp0OfZlc)
+- [Log4j Tutorials](https://www.youtube.com/watch?v=2ntHYiilddg&t=277s)
+- [Log4J Live Practice sessions](https://www.youtube.com/watch?v=RBxHHV_7Q0c&t=178s)
+
 ## Development Environment 🔭
 
 ![Java](https://img.shields.io/static/v1?style=for-the-badge&message=Open+JDK+14&color=007396&label=)
